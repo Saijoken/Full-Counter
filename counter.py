@@ -23,7 +23,7 @@ with open("config.yml", "r", encoding='utf8') as ymlfile:
 prefix = cfg["bot_config"]["prefix"]
 client = commands.Bot(command_prefix = prefix)
 client.remove_command('help')
-TOKEN = cfg["bot_config"]["token"]
+TOKEN = str(os.environ.get('BOT_TOKEN'))
 
 connection = sqlite3.connect("bdd.db")
 cursor = connection.cursor()
